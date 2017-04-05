@@ -1,0 +1,15 @@
+one:
+  follower: mudit
+  followed: maitreyee
+
+two:
+  follower: mudit
+  followed: himanshu
+
+three:
+  follower: maitreyee
+  followed: mudit
+
+four:
+  follower: nikita
+  followed: mudit

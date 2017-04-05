@@ -77,4 +77,22 @@ class UserTest < ActiveSupport::TestCase
     end
   end
 
+  test "feed should have the right posts" do
+    mudit = users(:mudit)
+    nikita  = users(:nikita)
+    himanshu    = users(:himanshu)
+    # Posts from followed user
+    himanshu.microposts.each do |post_following|
+      assert mudit.feed.include?(post_following)
+    end
+    # Posts from self
+    mudit.microposts.each do |post_self|
+      assert mudit.feed.include?(post_self)
+    end
+    # Posts from unfollowed user
+    nikita.microposts.each do |post_unfollowed|
+      assert_not mudit.feed.include?(post_unfollowed)
+    end
+  end
+
 end
